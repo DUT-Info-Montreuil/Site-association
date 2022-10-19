@@ -1,0 +1,11 @@
+body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    background-color: darkgray;
+    width: 100%;
+}
