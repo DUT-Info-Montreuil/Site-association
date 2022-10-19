@@ -1,4 +1,6 @@
 <?php
+    include_once "connection.php";
+    Connection::connect();
     echo "
     <HEAD>
 		<META CHARSET = 'UTF - 8'/>
