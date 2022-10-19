@@ -1,5 +1,6 @@
 <?php
     class Connection{
+        // enter in terminal before modifying so that you don't commit variables : git update-index --skip-worktree connection.php 
         private $host = "host";
         private $user = "user";
         private $pass = "password";
