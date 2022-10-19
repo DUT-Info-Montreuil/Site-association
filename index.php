@@ -12,6 +12,9 @@
         <HEADER>
             <H1> Site association </H1>
         </HEADER>
+        <MAIN>
+            <P> Bienvenue sur le site de l'association </P>
+        </MAIN>
         <FOOTER>
             <H2> wow </H2>
         </FOOTER>
