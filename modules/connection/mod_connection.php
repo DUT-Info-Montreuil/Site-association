@@ -4,17 +4,18 @@
         public $cont;
         public function __construct(){
             $this->cont = new ContConnection;
-            switch($this->cont->action){
+            echo strtolower($this->cont->action);
+            switch(strtolower($this->cont->action)){ // cases are all in lowercase
                 case 'default':
                     $this->cont->formSignIn();
                     break;
                 case 'connect':
                     $this->cont->connect();
                     break;
-                case 'formSignUp':
+                case 'formsignup':
                     $this->cont->formSignUp();
                     break;
-                case 'signUp':
+                case 'signup':
                     $this->cont->signUp();
                     break;
                 default:
