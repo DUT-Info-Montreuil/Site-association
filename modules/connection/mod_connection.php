@@ -17,6 +17,12 @@
                 case 'signup':
                     $this->cont->signUp();
                     break;
+                case 'alreadyconnected':
+                    $this->cont->logOutVisuals();
+                    break;
+                case 'logout':
+                    $this->cont->logOut();
+                    break;
                 default:
                     $this->cont->formSignIn();
                     break;
