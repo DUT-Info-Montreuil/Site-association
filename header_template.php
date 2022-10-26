@@ -5,8 +5,8 @@
     </a>
 
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Acceuil</a></li>
+        <li class="nav-item"><a href="index.php" class="nav-link active" aria-current="page">Acceuil</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Evenements</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Compte</a></li>
+        <li class="nav-item"><a href="index.php?module=connection" class="nav-link">Compte</a></li>
     </ul>
 </header>
