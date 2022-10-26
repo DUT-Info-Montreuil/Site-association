@@ -9,10 +9,10 @@
             return $row;
         }
 
-        public function signUp($username, $unHashedPassword){
+        public function signUp($username, $unHashedPassword, $email, $promotion){
             $hash = password_hash($unHashedPassword, PASSWORD_DEFAULT);
-            $query = self::$db->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-            $query->execute(array(":username" => $username, ":password" => $hash));
+            $query = self::$db->prepare("INSERT INTO users (username, password, email, promotion) VALUES (:username, :password, :email, :promotion)");
+            $query->execute(array(":username" => $username, ":password" => $hash, ":email" => $email, ":promotion" => $promotion));
         }
     }
 ?>

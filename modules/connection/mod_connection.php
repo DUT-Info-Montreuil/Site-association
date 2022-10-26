@@ -4,7 +4,6 @@
         public $cont;
         public function __construct(){
             $this->cont = new ContConnection;
-            echo strtolower($this->cont->action);
             switch(strtolower($this->cont->action)){ // cases are all in lowercase
                 case 'default':
                     $this->cont->formSignIn();

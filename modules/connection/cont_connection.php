@@ -13,12 +13,10 @@
         }
 
         public function formSignIn(){
-            echo 'formSignIn';
             $this->view->formSignIn();
         }
 
         public function connect(){
-            echo "connect";
             if(isset($_POST['username']) && isset($_POST['password'])){
                 $username = $_POST['username'];
                 $password = $_POST['password'];
@@ -38,16 +36,12 @@
         }
 
         public function formSignUp(){
-            echo "formSignUp";
             $this->view->formSignUp();
         }
 
         public function signUp(){
-            echo "signUp";
-            if(isset($_POST['username']) && isset($_POST['password'])){
-                $username = $_POST['username'];
-                $unHashedPassword = $_POST['password'];
-                $this->model->signUp($username, $unHashedPassword);
+            if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['promotion'])){
+                $this->model->signUp($_POST['username'], $_POST['password'], $_POST['email'], $_POST['promotion']);
                 //header('Location: index.php');
             }else{
                 echo "Missing information";
