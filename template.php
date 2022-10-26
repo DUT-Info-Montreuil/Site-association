@@ -8,9 +8,9 @@
 	</HEAD>
 
     <BODY>
-        <HEADER>
-            <H1> Site association </H1>
-        </HEADER>
+        <?php
+            require_once "header_template.php";
+        ?>
         <MAIN>
             <?php
                 echo $modConnection->getDisplay();
