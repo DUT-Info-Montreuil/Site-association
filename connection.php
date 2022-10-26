@@ -5,7 +5,7 @@
         private static $host = "host";
         private static $user = "user";
         private static $pass = "password";
-        public static $db;
+        protected static $db;
         
         public static function connect(){
             self::$db= new PDO(
