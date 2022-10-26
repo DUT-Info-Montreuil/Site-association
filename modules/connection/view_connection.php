@@ -1,10 +1,13 @@
 <?php
-    class ViewConnection{
-        public function __construct(){}
+    class ViewConnection extends GenericView{
+        public function __construct(){
+            parent::__construct();
+        }
 
 
         public function formSignUp(){
-            echo "
+            ?>
+            <HTML>
                 <form action='index.php?action=SignUp&module=connection' method='post'>
                     <input type='text' name='username' placeholder='Username' required>
                     <input type='email' name='email' placeholder='Email address' required>
@@ -18,11 +21,13 @@
                     </select>
                     <input type='submit' value='Sign up'>
                 </form>
-            ";
+            </HTML>
+            <?php
         }
 
         public function formSignIn(){
-            echo "
+            ?>
+            <HTML>
                 <form action='index.php?action=connect&module=connection' method='post'>
                     <input type='text' name='username' placeholder='Username' required>
                     <input type='password' name='password' placeholder='Password' required>
@@ -31,7 +36,8 @@
                     <br><br>
                     <a href='index.php?action=formSignUp&module=connexion'>Sign up</a>
                 </form>
-            ";
+            </HTML>
+            <?php
         }
     }
 ?>

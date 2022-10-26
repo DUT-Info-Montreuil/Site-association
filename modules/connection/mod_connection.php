@@ -28,5 +28,13 @@
                     break;
             }
         }
+
+        public function saveDisplay(){
+            echo $this->cont->view->setDisplay();
+        }
+
+        public function getDisplay(){
+            return $this->cont->view->display;
+        }
     }
 ?>
