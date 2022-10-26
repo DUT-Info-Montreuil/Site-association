@@ -17,6 +17,7 @@
                         <option value='GACO'>GACO</option>
                     </select>
                     <input type='submit' value='Sign up'>
+                </form>
             ";
         }
 
@@ -27,8 +28,9 @@
                     <input type='password' name='password' placeholder='Password' required>
                     <input type='submit' value='Log in'>
                 
-                <br><br>
-                <a href='index.php?action=formSignUp&module=connexion'>Sign up</a>
+                    <br><br>
+                    <a href='index.php?action=formSignUp&module=connexion'>Sign up</a>
+                </form>
             ";
         }
     }
