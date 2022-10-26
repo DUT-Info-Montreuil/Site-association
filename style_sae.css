@@ -1,0 +1,80 @@
+header h1
+{
+	text-align:center;
+}
+
+nav
+{
+	padding: 30px;
+	text-align: center;
+	background-color: #7486a3;
+}
+
+/*on passe aux liens de nav*/
+
+main
+{
+	margin: 15px;
+	padding: 15px;
+}
+
+nav a
+{
+	text-decoration:none;
+	color: rgb(180,180,180);
+	margin: 20px;
+}
+
+main article
+{
+	border: #606969 3px solid;
+	border-radius: 60px;
+	padding: 15px;
+}
+
+main aside
+{
+		border: 3px  #606969 solid;
+		display: inline-block;
+		width: 30%;
+		padding: 3px;
+		border-radius: 10px;
+		text-align: center;
+}
+
+main div
+{
+	display: inline-block;
+	width: 40%;
+}
+
+section {
+	display: inline-block;
+	width: 60%;
+}
+
+label
+{
+	display: block;
+	border: 1px  #606969 solid;
+	margin: 50px;
+	background-color: lightgrey;
+}
+
+footer
+{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	padding: 40px;
+	background-color: #222222;
+	margin-top: 50px;
+}
+
+footer p
+{
+	width: 70%;
+	float: right;
+	padding-top: 15px;
+	color: white;
+}
