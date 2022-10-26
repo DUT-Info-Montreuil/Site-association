@@ -1,7 +1,11 @@
 <?php
     include_once "connection.php";
+    include_once "modules/connection/mod_connection.php";
     Connection::connect();
-    echo "
+    session_start();
+?>
+
+<HTML>
     <HEAD>
 		<META CHARSET = 'UTF - 8'/>
 		<TITLE> Site association </TITLE>
@@ -15,11 +19,28 @@
             <H1> Site association </H1>
         </HEADER>
         <MAIN>
-            <P> Bienvenue sur le site de l'association </P>
+
+<?php
+    if(isset($_GET['module'])){
+        $module = $_GET['module'];
+        switch($module){
+            case 'connection':
+                include_once "modules/connection/mod_connection.php";
+                $modConnection = new ModConnection();
+                break;
+            default:
+                include_once "modules/connection/mod_connection.php";
+                $modConnection = new ModConnection();
+                break;
+        }
+    }else{
+        include_once "modules/connection/mod_connection.php";
+        $modConnection = new ModConnection();
+    }
+?>
         </MAIN>
         <FOOTER>
             <H2> wow </H2>
         </FOOTER>
     </BODY>
-    ";
-?>
+</HTML>
