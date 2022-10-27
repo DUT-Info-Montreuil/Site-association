@@ -1,4 +1,5 @@
 <?php
+    include_once 'modules/mainPage/cont_mainPage.php';
     class ModMainPage{
         public $cont;
         public function __construct(){

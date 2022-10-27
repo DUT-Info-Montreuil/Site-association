@@ -13,7 +13,7 @@
         ?>
         <MAIN>
             <?php
-                echo $modConnection->getDisplay();
+                echo $module->getDisplay();
             ?>
         </MAIN>
         <FOOTER>
