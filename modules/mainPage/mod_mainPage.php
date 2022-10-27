@@ -15,11 +15,11 @@
         }
  
         public function saveDisplay(){
-            echo $this->cont->view->setDisplay();
+            $this->cont->view->setDisplay();
         }
  
         public function getDisplay(){
-            return $this->cont->view->display;
+            return $this->cont->view->getDisplay();
         }
     }
 ?>

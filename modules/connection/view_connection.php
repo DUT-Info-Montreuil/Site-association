@@ -34,7 +34,7 @@
                     <input type='submit' value='Log in'>
                 
                     <br><br>
-                    <a href='index.php?action=formSignUp&module=connexion'>Sign up</a>
+                    <a href='index.php?action=formSignUp&module=connection'>Sign up</a>
                 </form>
             </HTML>
             <?php
