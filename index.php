@@ -16,6 +16,9 @@
                 include_once "modules/connection/mod_connection.php";
                 $module = new ModConnection();
                 break;
+            case 'request':
+                include_once "modules/request/mod_request.php";
+                $module = new ModRequest();
             default:
                 // error
                 break;
