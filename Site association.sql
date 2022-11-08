@@ -67,3 +67,35 @@ ALTER TABLE `users`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Structure de la table `achat`
+--
+
+CREATE TABLE `request` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `achat`
+--
+ALTER TABLE `request`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `achat`
+--
+ALTER TABLE `request`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
