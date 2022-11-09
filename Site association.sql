@@ -100,3 +100,37 @@ ALTER TABLE `request`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 ALTER TABLE `request` ADD `nbLike` INT NOT NULL AFTER `description`, ADD `idUser` INT NOT NULL AFTER `nbLike`;
+
+-- Structure de la table `commentReq`
+--
+
+CREATE TABLE `commentReq` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idReq` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `commentReq`
+--
+ALTER TABLE `commentReq`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `commentReq`
+--
+ALTER TABLE `commentReq`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

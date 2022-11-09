@@ -19,6 +19,10 @@
                             $this->cont->requestDetails();
                         }
                         break;
+
+                    case 'comment' :
+                        $this->cont->postComment();
+                        break;
     
                     default:
                         $this->cont->displayRequest();

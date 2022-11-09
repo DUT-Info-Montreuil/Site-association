@@ -17,7 +17,7 @@
         public function displayRequest(){
             $row = $this->model->getRequests();
             $user = $this->model->getUserDataFromId($_SESSION['id']);
-            $this->view->displayRequestPage($row, $user);
+            $this->view->displayRequestPage($row);
         }
 
         public function submit(){
@@ -33,7 +33,20 @@
         public function requestDetails(){
             $req = $this->model->getRequestOnId($_GET['id']);
             $user = $this->model->getUserDataFromId($_SESSION['id']);
-            $this->view->displayRequestDetails($user,$req);
+            $comments = $this->model->getCommentsFromId($_GET['id']);
+
+            $this->view->displayRequestDetails($req,$comments);
         }
+
+        public function postComment(){
+            if(isset($_GET['id'])){
+                $comment = $_POST['comment'];
+                $idReq = $_GET['id'];
+                $this->model->postComment($comment, $idReq);
+
+                $this->requestDetails();
+            }
+        }
+
     }
 ?>
