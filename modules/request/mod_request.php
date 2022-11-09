@@ -23,6 +23,10 @@
                     case 'comment' :
                         $this->cont->postComment();
                         break;
+
+                    case 'like' :
+                        $this->cont->likeReq();
+                        break;
     
                     default:
                         $this->cont->displayRequest();

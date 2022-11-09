@@ -41,6 +41,9 @@
             echo $req['title'] . ' demandé par ' . $req['username'] . '<br>' . $req['description'] .'<br>'. $req['nbLike'] .' Aiment';
 
             ?><HTML>
+                <form action='index.php?action=like&module=request&id=<?php echo $req["ID"]?>' method='post'>
+                    <input type='submit' value='Aimer'>
+                </form>
                 <form action='index.php?action=comment&module=request&id=<?php echo $req["ID"]?>' method='post'>
                     <input type='text' name='comment' placeholder='Commenter' required>
                     <input type='submit' value='Commenter'>

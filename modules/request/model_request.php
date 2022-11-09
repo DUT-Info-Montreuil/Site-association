@@ -32,5 +32,27 @@
             $row = $query->fetchAll();
             return $row;
         }
+
+        public function findIfLiked($idReq){
+            $query = self::$db->prepare("SELECT COUNT(*) FROM likedRequests WHERE idReq = :idReq AND idUser = :idUser");
+            $query->execute(array(":idUser"=>$_SESSION['id'], ":idReq"=>$idReq));
+            $count = $query->fetch();
+            return $count;
+        }
+
+        public function likeReq($idReq, $value){
+            $query = self::$db->prepare("UPDATE request SET nbLike = nbLike + :value WHERE ID = :idReq");
+            $query->execute(array(":idReq"=>$idReq, ":value"=>$value));
+        }
+
+        public function addLiked($idReq){
+            $query = self::$db->prepare("INSERT INTO likedRequests VALUES (:idUser, :idReq)");
+            $query->execute(array(":idUser"=>$_SESSION['id'], ":idReq"=>$idReq));
+        }
+
+        public function removeLiked($idReq){
+            $query = self::$db->prepare("DELETE FROM likedRequests WHERE idReq = :idReq");
+            $query->execute(array(":idReq"=>$idReq));
+        }
     }
 ?>

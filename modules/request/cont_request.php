@@ -48,5 +48,22 @@
             }
         }
 
+        public function likeReq(){
+            if(isset($_GET['id'])){
+                $liked = $this->model->findIfLiked($_GET['id']);
+                if($liked['COUNT(*)'] == 0){
+                    $this->model->likeReq($_GET['id'], 1);
+                    $this->model->addLiked($_GET['id']);
+                }
+
+                else{
+                    $this->model->likeReq($_GET['id'], -1);
+                    $this->model->removeLiked($_GET['id']);
+                }
+
+                $this->requestDetails();
+            }
+        }
+
     }
 ?>
