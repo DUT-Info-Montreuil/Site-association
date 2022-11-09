@@ -16,6 +16,10 @@
                 include_once "modules/connection/mod_connection.php";
                 $module = new ModConnection();
                 break;
+            case 'events':
+                include_once "modules/events/mod_events.php";
+                $module = new ModEvents();
+                break;
             default:
                 // error
                 break;
