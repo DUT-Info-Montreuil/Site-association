@@ -6,6 +6,8 @@
         public $view;
         public $action;
 
+        public $id;
+
         public function __construct(){
             isset($_GET['action']) ? $this->action = $_GET['action'] : $this->action = 'default';
             $this->model = new ModelRequest();
@@ -14,7 +16,7 @@
 
         public function displayRequest(){
             $row = $this->model->getRequests();
-            $user = $this->model->getUser();
+            $user = $this->model->getUserDataFromId($_SESSION['id']);
             $this->view->displayRequestPage($row, $user);
         }
 
@@ -26,6 +28,12 @@
                 $this->view->displaySubmit();
 
             }
+        }
+
+        public function requestDetails(){
+            $req = $this->model->getRequestOnId($_GET['id']);
+            $user = $this->model->getUserDataFromId($_SESSION['id']);
+            $this->view->displayRequestDetails($user,$req);
         }
     }
 ?>

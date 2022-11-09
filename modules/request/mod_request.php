@@ -13,6 +13,12 @@
                     case 'submit':
                         $this->cont->submit();
                         break;
+
+                    case 'read' :
+                        if(isset($_GET['id'])){
+                            $this->cont->requestDetails();
+                        }
+                        break;
     
                     default:
                         $this->cont->displayRequest();

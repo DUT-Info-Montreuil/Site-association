@@ -14,11 +14,11 @@
             return $row;
         }
 
-        public function getUser(){
-            $query = self::$db->prepare("SELECT * from users where id = :id");
-            $query->execute(array(":id"=>$_SESSION['id']));
-            $user = $query->fetch();
-            return $user;
+        public function getRequestOnId($id){
+            $query = self::$db->prepare("SELECT * FROM request WHERE ID = :id");
+            $query->execute(array(":id"=>$id));
+            $req = $query->fetch();
+            return $req;
         }
     }
 ?>

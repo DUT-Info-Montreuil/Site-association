@@ -30,5 +30,16 @@
                 
             </HTML><?php
         }
+
+        public function displayRequestDetails($user, $req){
+            ?><HTML>
+                
+                <h1>Requête d'achat</h1>
+                
+            </HTML><?php
+
+            echo $req['title'] . ' demandé par ' . $user['username'] . '<br>' . $req['description'] .'<br>'. $req['nbLike'] .' Aiment';
+            
+        }
     }
 ?>
