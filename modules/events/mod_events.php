@@ -5,6 +5,7 @@
 
         public function __construct(){
             $this->cont = new ContEvents;
+            
         }
      
         public function saveDisplay(){

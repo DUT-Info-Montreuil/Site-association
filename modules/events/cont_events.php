@@ -10,6 +10,19 @@
             isset($_GET['action']) ? $this->action = $_GET['action'] : $this->action = 'default';
             $this->model = new ModelEvents();
             $this->view = new ViewEvents();
+            
+        }
+
+        public function defaultPage(){
+            ?>
+                <div id="eventContainer">
+            <?php
+            foreach($this->model->getEvents() as $event){
+                $this->view->displayEvent($event);
+            }
+            ?>
+                </div>
+            <?php
         }
     }
 ?>
