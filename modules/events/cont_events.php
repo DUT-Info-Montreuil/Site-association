@@ -14,6 +14,7 @@
         }
 
         public function defaultPage(){
+            $this->view->displayCreateEventButton();
             ?>
                 <div id="eventContainer">
             <?php
@@ -23,6 +24,27 @@
             ?>
                 </div>
             <?php
+        }
+
+        public function formEvent(){
+            if(isset($_SESSION['id'])){
+                $this->view->displayFormEvent();
+            }
+            else{
+                header('Location: index.php?module=connection');
+            }
+        }
+
+        public function createEvent(){
+            if(isset($_SESSION['id'])){
+                if($this->model->createEvent($_POST['title'], $_POST['description'], $_POST['startDate'], $_POST['endDate']))
+                    header('Location: index.php?module=events');
+                else
+                    echo 'Error';
+            }
+            else{
+                header('Location: index.php?module=connection');
+            }
         }
     }
 ?>

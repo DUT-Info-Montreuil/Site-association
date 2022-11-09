@@ -33,4 +33,20 @@ footer{
     background-color: #e6e6e6;
     border: solid #b9b9b9 2px;
     border-radius : 25px;
+    width: 80%;
+    
+}
+
+#eventContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+
+    width: 80%;
+    border: #696969 2px solid;
+    border-radius: 25px;
+    padding-top: 20;
+    padding-bottom: 20px;
 }

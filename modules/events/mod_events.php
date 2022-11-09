@@ -5,7 +5,19 @@
 
         public function __construct(){
             $this->cont = new ContEvents;
-            
+            switch(strtolower($this->cont->action)){
+                case 'default':
+                    $this->cont->defaultPage();
+                    break;
+                case 'publish':
+                    $this->cont->formEvent();
+                    break;
+                case 'published' :
+                    $this->cont->createEvent();
+                default:
+                    $this->cont->defaultPage();
+                    break;
+            }
         }
      
         public function saveDisplay(){
