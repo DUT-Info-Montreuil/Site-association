@@ -13,7 +13,9 @@
         }
 
         public function displayRequest(){
-            $this->view->displayRequestPage();
+            $row = $this->model->getRequests();
+            $user = $this->model->getUser();
+            $this->view->displayRequestPage($row, $user);
         }
 
         public function submit(){
@@ -22,6 +24,7 @@
                 $description = $_POST['description'];
                 $this->model->submitRequest($title, $description);
                 $this->view->displaySubmit();
+
             }
         }
     }

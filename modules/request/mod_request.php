@@ -4,19 +4,26 @@
         public $cont;
         public function __construct(){
             $this->cont = new ContRequest;
-            switch(strtolower($this->cont->action)){ // cases are all in lowercase
-                case 'default':
-                    $this->cont->displayRequest();
-                    break;
-                
-                case 'submit':
-                    $this->cont->submit();
-                    break;
+            if(isset($_SESSION['id'])){
+                switch(strtolower($this->cont->action)){ // cases are all in lowercase
+                    case 'default':
+                        $this->cont->displayRequest();
+                        break;
+                    
+                    case 'submit':
+                        $this->cont->submit();
+                        break;
+    
+                    default:
+                        $this->cont->displayRequest();
+                        break;
+                    }
+            }
 
-                default:
-                    $this->cont->displayRequest();
-                    break;
-                }
+            else{
+                echo "lol connecte toi";
+            }
+            
         }
 
         public function saveDisplay(){
