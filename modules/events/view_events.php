@@ -20,7 +20,12 @@
                 <div class="eventTop">
                     <h2><?php echo $event['title']; ?></h2>
                     <p><?php echo $event['creationDate']; ?></p>
-                    <p>par : <?php echo Connection::getUserFromId($event['creatorId'])['username']; ?></p>
+                    <p>par : <?php 
+                    if($event['creatorId'] == $_SESSION ['id']){
+                        echo "Vous";
+                    } else{
+                        echo Connection::getUserFromId($event['creatorId'])['username']; 
+                    }?></p>
                 </div>
                 <p class="eventDesc"><?php echo $event['description']; ?></p>
                 <div class="eventBottom">
@@ -31,7 +36,6 @@
                     } ?> participants
                     </p>
                 </div>
-                
             </div>
             <?php
         }
