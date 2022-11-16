@@ -20,8 +20,9 @@
                 <h2><?php echo $event['title']; ?></h2>
                 <p><?php echo $event['description']; ?></p>
                 <p><?php echo $event['creationDate']; ?></p>
-                <p>from : <?php echo $event['startDate']; ?> to : <?php echo $event['endDate']?></p>
-                <p>by : <?php echo $event['author']; ?></p>
+                <p>from : <?php echo $event['startDate']; ?></p>
+                <p>to : <?php echo $event['endDate']; ?></p>
+                <p>by : <?php echo Connection::getUserFromId($event['creatorId'])['username']; ?></p>
             </div>
             <?php
         }
