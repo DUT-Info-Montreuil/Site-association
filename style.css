@@ -29,11 +29,32 @@ footer{
 }
 
 .event{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: left;
+
     padding: 20px;
     background-color: #e6e6e6;
     border: solid #b9b9b9 2px;
     border-radius : 25px;
     width: 80%;
+}
+
+.eventTop{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.eventBottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #eventContainer{

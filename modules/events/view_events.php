@@ -17,15 +17,21 @@
         public function displayEvent($event){
             ?>
             <div class="event">
-                <h2><?php echo $event['title']; ?></h2>
+                <div class="eventTop">
+                    <h2><?php echo $event['title']; ?></h2>
+                    <p><?php echo $event['creationDate']; ?></p>
+                    <p>par : <?php echo Connection::getUserFromId($event['creatorId'])['username']; ?></p>
+                </div>
                 <p><?php echo $event['description']; ?></p>
-                <p><?php echo $event['creationDate']; ?></p>
-                <p>from : <?php echo $event['startDate']; ?></p>
-                <p>to : <?php echo $event['endDate']; ?></p>
-                <p>by : <?php echo Connection::getUserFromId($event['creatorId'])['username']; ?></p>
-                <p><?php echo $event['minParticipants']?> <?php if(isset($event['maxParticipants'])){
-                    echo "/ " . $event['maxParticipants'];
-                } ?> participants</p>
+                <div class="eventBottom">
+                    <p>du : <?php echo $event['startDate']; ?></p>
+                    <p>au : <?php echo $event['endDate']; ?></p>
+                    <p><?php echo $event['minParticipants']?> <?php if(isset($event['maxParticipants'])){
+                        echo "/ " . $event['maxParticipants'];
+                    } ?> participants
+                    </p>
+                </div>
+                
             </div>
             <?php
         }
