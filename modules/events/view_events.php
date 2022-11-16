@@ -20,6 +20,8 @@
                 <h2><?php echo $event['title']; ?></h2>
                 <p><?php echo $event['description']; ?></p>
                 <p><?php echo $event['creationDate']; ?></p>
+                <p>from : <?php echo $event['startDate']; ?> to : <?php echo $event['endDate']?></p>
+                <p>by : <?php echo $event['author']; ?></p>
             </div>
             <?php
         }
@@ -35,6 +37,7 @@
                     <label for="end">Date de début</label>
                     <input id="end" type="date" name="endDate" required>
                     <input type='submit' value='Publier'>
+                </form>
             <?php
         }
     }
