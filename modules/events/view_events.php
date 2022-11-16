@@ -22,7 +22,7 @@
                     <p><?php echo $event['creationDate']; ?></p>
                     <p>par : <?php echo Connection::getUserFromId($event['creatorId'])['username']; ?></p>
                 </div>
-                <p><?php echo $event['description']; ?></p>
+                <p class="eventDesc"><?php echo $event['description']; ?></p>
                 <div class="eventBottom">
                     <p>du : <?php echo $event['startDate']; ?></p>
                     <p>au : <?php echo $event['endDate']; ?></p>

@@ -41,6 +41,10 @@ footer{
     width: 80%;
 }
 
+.eventDesc{
+    font-size: larger;
+}
+
 .eventTop{
     display: flex;
     flex-direction: row;
