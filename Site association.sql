@@ -125,3 +125,81 @@ ALTER TABLE `events`
 --
 ALTER TABLE `events`
   ADD CONSTRAINT `fk_events` FOREIGN KEY (`creatorId`) REFERENCES `users` (`id`);
+-- Structure de la table `achat`
+--
+
+CREATE TABLE `request` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `achat`
+--
+ALTER TABLE `request`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `achat`
+--
+ALTER TABLE `request`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+ALTER TABLE `request` ADD `nbLike` INT NOT NULL AFTER `description`, ADD `idUser` INT NOT NULL AFTER `nbLike`;
+
+-- Structure de la table `commentReq`
+--
+
+CREATE TABLE `commentReq` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idReq` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `commentReq`
+--
+ALTER TABLE `commentReq`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `commentReq`
+--
+ALTER TABLE `commentReq`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+
+-- Structure de la table `likedRequests`
+--
+
+CREATE TABLE `likedRequests` (
+  `idUser` int(11) NOT NULL,
+  `idReq` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -22,5 +22,11 @@
             ));
             return $query->fetch();
         }
+
+        public static function getUserDataFromId($id){
+            $query = self::$db->prepare("SELECT * FROM users WHERE id = :id");
+            $query->execute(array(":id" => $id));
+            return $query->fetch();
+        }
     }
 ?>
