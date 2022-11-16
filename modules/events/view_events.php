@@ -23,6 +23,9 @@
                 <p>from : <?php echo $event['startDate']; ?></p>
                 <p>to : <?php echo $event['endDate']; ?></p>
                 <p>by : <?php echo Connection::getUserFromId($event['creatorId'])['username']; ?></p>
+                <p><?php echo $event['minParticipants']?> <?php if(isset($event['maxParticipants'])){
+                    echo "/ " . $event['maxParticipants'];
+                } ?> participants</p>
             </div>
             <?php
         }
