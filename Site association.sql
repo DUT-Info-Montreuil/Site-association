@@ -67,3 +67,61 @@ ALTER TABLE `users`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Structure de la table `events`
+--
+
+CREATE TABLE `events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` text,
+  `creatorId` bigint(20) UNSIGNED NOT NULL,
+  `minParticipants` int(11) NOT NULL,
+  `maxParticipants` int(11) DEFAULT NULL,
+  `creationDate` date NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `description`, `creatorId`, `minParticipants`, `maxParticipants`, `creationDate`, `startDate`, `endDate`) VALUES
+(1, 'AMOGUS REUNION (VERY IMPORTANT)', 'WE ARE GONNA MONG SOME US AND IT\'S GONNA BE EPIC (wow)', 2, 4, NULL, '2022-11-09', '2022-11-14', '2022-11-15'),
+(2, 'test', 'waw', 4, 1, NULL, '2022-11-09', '2022-11-12', '2022-11-23'),
+(3, 'Boyz hangin out in the toilets', 'what will happen ???', 4, 1, NULL, '2022-11-09', '2022-11-08', '2022-11-11'),
+(4, 'Wow on mange des pates', 'c\'est fou', 4, 1, NULL, '2022-11-09', '2022-11-04', '2022-11-24'),
+(5, 'test', 'test', 4, 1, NULL, '2022-11-09', '2022-11-01', '2022-11-08');
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `fk_events` (`creatorId`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `events`
+--
+ALTER TABLE `events`
+  ADD CONSTRAINT `fk_events` FOREIGN KEY (`creatorId`) REFERENCES `users` (`id`);
