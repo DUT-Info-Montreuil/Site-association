@@ -62,6 +62,16 @@ footer{
     justify-content: space-between;
 }
 
+.eventButtons {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+}
+
+.eventButtons button img{
+    width: 100%;
+}
+
 #eventContainer{
     display: flex;
     flex-direction: column;

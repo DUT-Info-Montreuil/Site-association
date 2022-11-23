@@ -36,6 +36,45 @@
                     } ?> participants
                     </p>
                 </div>
+                <?php
+                    if(isset($_SESSION['id']) && $event['creatorId'] == $_SESSION ['id']){
+                        //ajax buttons to delete or modify the event
+                        ?>
+                        <div class="eventButtons">
+                            <button class="btn btn-danger" onclick="deleteEvent(<?php echo $event['id']; ?>)"><img src="resources/Trashcan.png"></button>
+                            <button class="btn btn-warning" onclick="modifyEvent(<?php echo $event['id']; ?>)"><img src="resources/Craft.png"></button>
+                        </div>
+                        <script>
+                            function deleteEvent(id){
+                                $.ajax({
+                                    url: "index.php?module=events&action=delete",
+                                    type: "POST",
+                                    data: {
+                                        id: id
+                                    },
+                                    success: function(data){
+                                        location.reload();
+                                    }
+                                });
+                            }
+
+                            function modifyEvent(id){
+                                $.ajax({
+                                    url: "index.php?module=events&action=modify",
+                                    type: "POST",
+                                    data: {
+                                        id: id
+                                    },
+                                    success: function(data){
+                                        location.reload();
+                                    }
+                                });
+                            }
+                        </script>
+                        <?php
+                    }
+                ?>
+                
             </div>
             <?php
         }
