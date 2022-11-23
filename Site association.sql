@@ -131,32 +131,40 @@ ALTER TABLE `events`
 CREATE TABLE `request` (
   `ID` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `nbLike` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables exportées
+-- Déchargement des données de la table `request`
+--
+
+INSERT INTO `request` (`ID`, `title`, `description`, `nbLike`, `idUser`) VALUES
+(4, 'Une table de baby-foot', 'Afin de se divertir entre les cours', 1, 5),
+(5, 'Un service Ã  raclette', 'Pour se pÃ©ter le bide', 0, 5);
+
+--
+-- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `achat`
+-- Index pour la table `request`
 --
 ALTER TABLE `request`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `ID` (`ID`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `achat`
+-- AUTO_INCREMENT pour la table `request`
 --
 ALTER TABLE `request`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-ALTER TABLE `request` ADD `nbLike` INT NOT NULL AFTER `description`, ADD `idUser` INT NOT NULL AFTER `nbLike`;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 
 -- Structure de la table `commentReq`
 --

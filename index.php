@@ -10,8 +10,7 @@
     
     $module;
     if(isset($_GET['module'])){
-        $moduleVar = $_GET['module'];
-        switch($moduleVar){
+        switch($_GET['module']){
             case 'connection':
                 include_once "modules/connection/mod_connection.php";
                 $module = new ModConnection();
@@ -19,6 +18,7 @@
             case 'request':
                 include_once "modules/request/mod_request.php";
                 $module = new ModRequest();
+                break;
             case 'events':
                 include_once "modules/events/mod_events.php";
                 $module = new ModEvents();
