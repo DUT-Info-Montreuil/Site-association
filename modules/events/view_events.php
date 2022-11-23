@@ -47,7 +47,7 @@
                         <script>
                             function deleteEvent(id){
                                 $.ajax({
-                                    url: "events/deleteEvent.php",
+                                    url: "modules/events/deleteEvent.php",
                                     type: "POST",
                                     data: {
                                         id: id
