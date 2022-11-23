@@ -3,7 +3,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh; /* vh = viewport height so 100vh = 100% of screen */
+    
 }
 
 header{
@@ -20,6 +20,7 @@ main{
     align-items: center;
 
     background: linear-gradient(170deg, #ffffff, #f0f0f0);
+    min-height: 100vh; /* vh = viewport height so 100vh = 100% of screen */
 }
 
 footer{
