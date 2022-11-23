@@ -47,14 +47,17 @@
                         <script>
                             function deleteEvent(id){
                                 $.ajax({
-                                    url: "index.php?module=events&action=delete",
+                                    url: "events/deleteEvent.php",
                                     type: "POST",
                                     data: {
                                         id: id
                                     },
+                                    dataType: "json",
                                     success: function(data){
                                         location.reload();
                                     }
+                                }).fail(function(){
+                                    alert("Error");
                                 });
                             }
 
@@ -65,16 +68,18 @@
                                     data: {
                                         id: id
                                     },
+                                    dataType: "json",
                                     success: function(data){
                                         location.reload();
                                     }
+                                }).fail(function(){
+                                    alert("Error");
                                 });
                             }
                         </script>
                         <?php
                     }
                 ?>
-                
             </div>
             <?php
         }
