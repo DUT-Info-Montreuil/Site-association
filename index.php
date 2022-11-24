@@ -2,8 +2,6 @@
     include_once "connection.php";
     include_once "genericView.php";
 
-    include_once "modules/mainPage/mod_mainPage.php";
-    include_once "modules/connection/mod_connection.php";
 
     Connection::connect();
     session_start();
@@ -28,7 +26,7 @@
                 break;
         }
     }else{
-        include_once "modules/connection/mod_connection.php";
+        include_once "modules/mainPage/mod_mainPage.php";
         $module = new ModMainPage();
     }
     $module->saveDisplay();
