@@ -53,27 +53,30 @@
                                         id: id
                                     },
                                     dataType: "json",
+                                    error: function() {
+                                        alert("bruh");
+                                    },
                                     success: function(data){
                                         location.reload();
                                     }
-                                }).fail(function(){
-                                    alert("Error");
+
                                 });
                             }
 
                             function modifyEvent(id){
                                 $.ajax({
-                                    url: "index.php?module=events&action=modify",
+                                    url: "modules/events/deleteEvent.php",
                                     type: "POST",
                                     data: {
                                         id: id
                                     },
                                     dataType: "json",
+                                    error: function() {
+                                        alert("bruh");
+                                    },
                                     success: function(data){
                                         location.reload();
                                     }
-                                }).fail(function(){
-                                    alert("Error");
                                 });
                             }
                         </script>
