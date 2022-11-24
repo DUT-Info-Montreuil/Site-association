@@ -52,12 +52,12 @@
                                     data: {
                                         id: id
                                     },
-                                    dataType: "json",
                                     error: function() {
                                         alert("bruh");
                                     },
                                     success: function(data){
-                                        location.reload();
+                                        //location.reload();
+                                        alert("done");
                                     }
 
                                 });
@@ -70,7 +70,6 @@
                                     data: {
                                         id: id
                                     },
-                                    dataType: "json",
                                     error: function() {
                                         alert("bruh");
                                     },
