@@ -53,11 +53,10 @@
                                         id: id
                                     },
                                     error: function() {
-                                        alert("bruh");
+                                        alert("error");
                                     },
                                     success: function(data){
-                                        //location.reload();
-                                        alert("done");
+                                        location.reload();
                                     }
 
                                 });
@@ -71,7 +70,7 @@
                                         id: id
                                     },
                                     error: function() {
-                                        alert("bruh");
+                                        alert("error");
                                     },
                                     success: function(data){
                                         location.reload();
