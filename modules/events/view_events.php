@@ -43,7 +43,7 @@
                     if(isset($_SESSION['id']) && $event['creatorId'] != $_SESSION ['id'] && !Connection::isSubscribedToEvent($event['id'])){
                         // button to participate to the event
                         ?>
-                        <button class="btn btn-success" id="subcribeEventButton" onclick="subscribeToEvent(<?php echo $event['id']?>)">
+                        <button class="btn btn-success" onclick="subscribeToEvent(<?php echo $event['id']?>)">
                             Participer
                         </button>
                         <script>
@@ -56,7 +56,7 @@
                                         action: "subscribe"
                                     },
                                     success: function(data){
-                                        //location.reload();
+                                        location.reload();
                                     },
                                     error: function(){
                                         alert("Une erreur est survenue");
@@ -66,14 +66,39 @@
                         </script>
                 <?php
                     }
-                    
+                    else if (Connection::isSubscribedToEvent($event['id'])){
+                        // button to cancel participation to the event
+                        ?>
+                        <button class="btn btn-danger" onclick="unsubscribeFromEvent(<?php echo $event['id']?>)">
+                            Ne plus participer
+                        </button>
+                        <script>
+                            function unsubscribeFromEvent(id){
+                                $.ajax({
+                                    url: "modules/events/eventActions.php",
+                                    type: "POST",
+                                    data: {
+                                        id: id,
+                                        action: "unsubscribe"
+                                    },
+                                    success: function(data){
+                                        location.reload();
+                                    },
+                                    error: function(){
+                                        alert("Une erreur est survenue");
+                                    }
+                                });
+                            }
+                        </script>
+                        <?php
+                    }
 
                     if(isset($_SESSION['id']) && $event['creatorId'] == $_SESSION ['id']){
                         //ajax buttons to delete or modify the event
                 ?>
                         <div class="eventButtons">
-                            <button id="deleteButton" class="btn btn-danger" onclick="deleteEvent(<?php echo $event['id']; ?>)"><img src="resources/Trashcan.png"></button>
-                            <button id="modifyButton" class="btn btn-warning" onclick="modifyEvent(<?php echo $event['id']; ?>)"><img src="resources/Craft.png"></button>
+                            <button class="btn btn-danger" onclick="deleteEvent(<?php echo $event['id']; ?>)"><img src="resources/Trashcan.png"></button>
+                            <button class="btn btn-warning" onclick="modifyEvent(<?php echo $event['id']; ?>)"><img src="resources/Craft.png"></button>
                         </div>
                         <script>
                             function deleteEvent(id){

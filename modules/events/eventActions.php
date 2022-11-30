@@ -15,6 +15,14 @@
                 ':idEvent' => $id
             ));
         }
+
+        public static function unsubToEvent($id){
+            $query = self::$db->prepare("DELETE FROM eventSubscribers WHERE idUser = :idUser AND idEvent = :idEvent");
+            return $query->execute(array(
+                ':idUser' => $_SESSION['id'],
+                ':idEvent' => $id
+            ));
+        }
     }
 
     session_start();
@@ -26,6 +34,9 @@
                 break;
             case "subscribe":
                 DelEvent::subToEvent($_POST['id']);
+                break;
+            case "unsubscribe":
+                DelEvent::unsubToEvent($_POST['id']);
                 break;
             default:
                 break;
