@@ -17,8 +17,8 @@
                 case 'signup':
                     $this->cont->signUp();
                     break;
-                case 'alreadyconnected':
-                    $this->cont->logOutVisuals();
+                case 'connected':
+                    $this->cont->profilePage();
                     break;
                 case 'logout':
                     $this->cont->logOut();

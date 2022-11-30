@@ -39,5 +39,28 @@
             </HTML>
             <?php
         }
+
+        public function profilePage(){
+            ?>
+            <HTML>
+                <a href='index.php?action=logout&module=connection'>Se déconnecter</a>
+                <div id='PPLeftColoumn'>
+                    <div id="PPLeftTop">
+                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                        <div>
+                            <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['username']?></p>
+                            <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['email']?></p>
+                            <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['promotion']?></p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div id='PPRightColoumn'>
+                    
+                </div>
+            </HTML>
+            <?php
+        }
     }
 ?>

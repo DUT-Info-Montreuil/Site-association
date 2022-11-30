@@ -9,7 +9,7 @@
         public function __construct(){
             isset($_GET['action']) ? $this->action = $_GET['action'] : $this->action = 'default';
             if(isset($_SESSION['id']) && $this->action != 'logout'){
-                $this->action = 'alreadyConnected';
+                $this->action = 'connected';
             }
             $this->model = new ModelAccount();
             $this->view = new ViewAccount();
@@ -50,10 +50,8 @@
             }
         }
 
-        public function logOutVisuals(){
-            echo "You are already connected
-            <br><br>
-            <a href='index.php?action=logout&module=connection'>Log out</a>";
+        public function profilePage(){
+            $this->view->profilePage();
         }
 
         public function logOut(){
