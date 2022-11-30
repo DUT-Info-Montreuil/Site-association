@@ -58,7 +58,7 @@
             </HTML> 
             <div class="requestDetails"><?php
 
-                    echo $req['title'] . ' demandé par ' . $req['username'] . '<br>' . $req['description'] .'<br>'. $req['nbLike'] .' Aiment';
+                    echo $req['title'] . ' demandé par ' . $req['username'] . '<br>' . $req['description'] .'<br>'. $req['nbLike'] .' Aiment' . '<br>Statut: '. $req['state'];
                     if($author['COUNT(*)'] == 1){
                         ?>
                         <HTML>
@@ -74,10 +74,23 @@
                         <form action='index.php?action=like&module=request&id=<?php echo $req["ID"]?>' method='post'>
                             <input type='submit' value='Aimer'>
                         </form>
+                    </HTML>
+                    <?php if(Connection::getUserDataFromId($_SESSION['id'])['role'] == 'admin'){ ?>
+                    <HTML>
+                        <form action='index.php?action=approve&module=request&id=<?php echo $req["ID"]?>' method='post'>
+                            <input type='submit' value='Approuver'>
+                        </form>
+                        <form action='index.php?action=discard&module=request&id=<?php echo $req["ID"]?>' method='post'>
+                            <input type='submit' value='Rejeter'>
+                        </form>
+                    </HTML>
+                    <?php } ?>
+                    <HTML>
                         <form action='index.php?action=comment&module=request&id=<?php echo $req["ID"]?>' method='post'>
                             <input type='text' name='comment' placeholder='Commenter' required>
                             <input type='submit' value='Commenter'>
                         </form>
+
 
                     </HTML>
 

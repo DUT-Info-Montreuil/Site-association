@@ -35,6 +35,14 @@
                     case 'submitedit' :
                         $this->cont->submitEdit();
                         break;
+
+                    case 'approve' :
+                        $this->cont->approve();
+                        break;
+
+                    case 'discard' :
+                        $this->cont->discard();
+                        break;
     
                     default:
                         $this->cont->displayRequest();

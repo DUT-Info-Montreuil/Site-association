@@ -93,12 +93,22 @@
                         <?php
                     }
 
-                    if(isset($_SESSION['id']) && $event['creatorId'] == $_SESSION ['id']){
+                    if(isset($_SESSION['id'])){
                         //ajax buttons to delete or modify the event
                 ?>
                         <div class="eventButtons">
+                        <?php
+                        if($event['creatorId'] == $_SESSION ['id']){
+                        ?>
                             <button class="btn btn-danger" onclick="deleteEvent(<?php echo $event['id']; ?>)"><img src="resources/Trashcan.png"></button>
                             <button class="btn btn-warning" onclick="modifyEvent(<?php echo $event['id']; ?>)"><img src="resources/Craft.png"></button>
+                        <?php
+                        }else if(Connection::getUserDataFromId($_SESSION['id'])['role'] == 'admin'){
+                        ?>
+                            <button class="btn btn-danger" onclick="deleteEvent(<?php echo $event['id']; ?>)"><img src="resources/Trashcan.png"></button>
+                        <?php
+                        }
+                        ?>
                         </div>
                         <script>
                             function deleteEvent(id){
