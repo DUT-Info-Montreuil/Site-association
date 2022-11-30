@@ -211,3 +211,49 @@ CREATE TABLE `likedRequests` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- Structure de la table `eventSubscribers`
+--
+
+CREATE TABLE `eventSubscribers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idUser` bigint(20) UNSIGNED NOT NULL,
+  `idEvent` bigint(20) UNSIGNED NOT NULL,
+  `timeSaved` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `eventSubscribers`
+--
+ALTER TABLE `eventSubscribers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `fk_evSubUser` (`idUser`),
+  ADD KEY `fk_evSubEvent` (`idEvent`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `eventSubscribers`
+--
+ALTER TABLE `eventSubscribers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `eventSubscribers`
+--
+ALTER TABLE `eventSubscribers`
+  ADD CONSTRAINT `fk_evSubEvent` FOREIGN KEY (`idEvent`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_evSubUser` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
