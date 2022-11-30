@@ -16,5 +16,13 @@
                 ':endDate' => $endDate
             ));
         }
+
+        public function getEventsOnPromotion($promo){
+            $query = self::$db->prepare("SELECT * FROM events WHERE promotion = :promo OR promotion is NULL ORDER BY creationDate ASC");
+            $query->execute(array(
+                ':promo'=> $promo
+            ));
+            return $query->fetchAll();;
+        }
     }
 ?>

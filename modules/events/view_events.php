@@ -13,6 +13,23 @@
             <?php
         }
 
+        public function displayFilterButton(){
+            ?>
+                <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="index.php?module=events">TOUS</a></li>
+                    <li><a class="dropdown-item" href="index.php?module=events&action=filter&promo=INFO">INFO</a></li>
+                    <li><a class="dropdown-item" href="index.php?module=events&action=filter&promo=QLIO">QLIO</a></li>
+                    <li><a class="dropdown-item" href="index.php?module=events&action=filter&promo=INFOCOM">INFOCOM</a>
+                    <li><a class="dropdown-item" href="index.php?module=events&action=filter&promo=GACO">GACO</a></li>
+                </ul>
+                </div>
+            <?php
+        }
+
         // This function is called from the controller and is used to display the events on the page in html.
         public function displayEvent($event){
             ?>
@@ -40,58 +57,61 @@
                 </div>
 
                 <?php
-                    if(isset($_SESSION['id']) && $event['creatorId'] != $_SESSION ['id'] && !Connection::isSubscribedToEvent($event['id'])){
-                        // button to participate to the event
-                        ?>
-                        <button class="btn btn-success" onclick="subscribeToEvent(<?php echo $event['id']?>)">
-                            Participer
-                        </button>
-                        <script>
-                            function subscribeToEvent(id){
-                                $.ajax({
-                                    url: "modules/events/eventActions.php",
-                                    type: "POST",
-                                    data: {
-                                        id: id,
-                                        action: "subscribe"
-                                    },
-                                    success: function(data){
-                                        location.reload();
-                                    },
-                                    error: function(){
-                                        alert("Une erreur est survenue");
-                                    }
-                                });
-                            }
-                        </script>
-                <?php
+                    if(isset($_SESSION['id']) && Connection::getUserDataFromId($_SESSION['id'])['promotion'] == $event['promotion']){
+                        if(isset($_SESSION['id']) && $event['creatorId'] != $_SESSION ['id'] && !Connection::isSubscribedToEvent($event['id'])){
+                            // button to participate to the event
+                            ?>
+                            <button class="btn btn-success" onclick="subscribeToEvent(<?php echo $event['id']?>)">
+                                Participer
+                            </button>
+                            <script>
+                                function subscribeToEvent(id){
+                                    $.ajax({
+                                        url: "modules/events/eventActions.php",
+                                        type: "POST",
+                                        data: {
+                                            id: id,
+                                            action: "subscribe"
+                                        },
+                                        success: function(data){
+                                            location.reload();
+                                        },
+                                        error: function(){
+                                            alert("Une erreur est survenue");
+                                        }
+                                    });
+                                }
+                            </script>
+                    <?php
+                        }
+                        else if (isset($_SESSION['id']) && Connection::isSubscribedToEvent($event['id'])){
+                            // button to cancel participation to the event
+                            ?>
+                            <button class="btn btn-danger" onclick="unsubscribeFromEvent(<?php echo $event['id']?>)">
+                                Ne plus participer
+                            </button>
+                            <script>
+                                function unsubscribeFromEvent(id){
+                                    $.ajax({
+                                        url: "modules/events/eventActions.php",
+                                        type: "POST",
+                                        data: {
+                                            id: id,
+                                            action: "unsubscribe"
+                                        },
+                                        success: function(data){
+                                            location.reload();
+                                        },
+                                        error: function(){
+                                            alert("Une erreur est survenue");
+                                        }
+                                    });
+                                }
+                            </script>
+                            <?php
+                        }
                     }
-                    else if (Connection::isSubscribedToEvent($event['id'])){
-                        // button to cancel participation to the event
-                        ?>
-                        <button class="btn btn-danger" onclick="unsubscribeFromEvent(<?php echo $event['id']?>)">
-                            Ne plus participer
-                        </button>
-                        <script>
-                            function unsubscribeFromEvent(id){
-                                $.ajax({
-                                    url: "modules/events/eventActions.php",
-                                    type: "POST",
-                                    data: {
-                                        id: id,
-                                        action: "unsubscribe"
-                                    },
-                                    success: function(data){
-                                        location.reload();
-                                    },
-                                    error: function(){
-                                        alert("Une erreur est survenue");
-                                    }
-                                });
-                            }
-                        </script>
-                        <?php
-                    }
+                    
 
                     if(isset($_SESSION['id'])){
                         //ajax buttons to delete or modify the event

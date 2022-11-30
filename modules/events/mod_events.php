@@ -12,6 +12,9 @@
                 case 'publish':
                     $this->cont->formEvent();
                     break;
+                case 'filter' :
+                    $this->cont->filteredPage();
+                    break;
                 case 'published' :
                     $this->cont->createEvent();
                 default:

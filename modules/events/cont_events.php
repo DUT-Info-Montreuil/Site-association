@@ -15,10 +15,25 @@
 
         public function defaultPage(){
             $this->view->displayCreateEventButton();
+            $this->view->displayFilterButton();
             ?>
                 <div id="eventContainer">
             <?php
             foreach($this->model->getEvents() as $event){
+                $this->view->displayEvent($event);
+            }
+            ?>
+                </div>
+            <?php
+        }
+
+        public function filteredPage(){
+            $this->view->displayCreateEventButton();
+            $this->view->displayFilterButton();
+            ?>
+                <div id="eventContainer">
+            <?php
+            foreach($this->model->getEventsOnPromotion($_GET['promo']) as $event){
                 $this->view->displayEvent($event);
             }
             ?>
