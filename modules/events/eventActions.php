@@ -25,11 +25,7 @@
                 DelEvent::deleteEvent($_POST['id']);
                 break;
             case "subscribe":
-                if(DelEvent::subToEvent($_POST['id'])){
-                    echo "success";
-                }else{
-                    echo "error";
-                }
+                DelEvent::subToEvent($_POST['id']);
                 break;
             default:
                 break;

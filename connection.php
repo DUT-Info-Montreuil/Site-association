@@ -2,9 +2,9 @@
     class Connection{
         // enter in terminal before modifying so that you don't commit variables : git update-index --skip-worktree connection.php 
         // enter in terminal after modifying so that you can commit variables : git update-index --no-skip-worktree connection.php
-        private static $host = "host";
-        private static $user = "user";
-        private static $pass = "password";
+        private static $host = "database-etudiants.iut.univ-paris8.fr";
+        private static $user = "dutinfopw201646";
+        private static $pass = "bygyjyjy";
         protected static $db;
         
         public static function connect(){
@@ -15,18 +15,19 @@
             );
         }
 
-        public static function getUserFromId($id){
-            $query = self::$db->prepare("SELECT * FROM users WHERE id = :id");
-            $query->execute(array(
-                'id' => $id
-            ));
-            return $query->fetch();
-        }
-
         public static function getUserDataFromId($id){
             $query = self::$db->prepare("SELECT * FROM users WHERE id = :id");
             $query->execute(array(":id" => $id));
             return $query->fetch();
+        }
+
+        public static function isSubscribedToEvent($idEvent){
+            $query = self::$db->prepare("SELECT count(*) FROM eventSubscribers WHERE idUser = :idUser AND idEvent = :idEvent");
+            $query->execute(array(
+                ":idUser" => $_SESSION['id'],
+                ":idEvent" => $idEvent
+            ));
+            return $query->fetch()[0] > 0;
         }
     }
 ?>

@@ -40,7 +40,7 @@
                 </div>
 
                 <?php
-                    if(isset($_SESSION['id']) && $event['creatorId'] != $_SESSION ['id']){
+                    if(isset($_SESSION['id']) && $event['creatorId'] != $_SESSION ['id'] && !Connection::isSubscribedToEvent($event['id'])){
                         // button to participate to the event
                         ?>
                         <button class="btn btn-success" id="subcribeEventButton" onclick="subscribeToEvent(<?php echo $event['id']?>)">
