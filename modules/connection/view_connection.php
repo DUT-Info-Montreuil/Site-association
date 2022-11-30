@@ -14,7 +14,7 @@
                     <input type='password' name='password' placeholder='Password' required>
                     <select name='promotion' class='form-select form-select-sm' aria-label='.form-select-sm example'>
                         <option selected>Promotion</option>
-                        <option value='INFO'>Informatique</option>
+                        <option value='INFO'>INFO</option>
                         <option value='QLIO'>QLIO</option>
                         <option value='INFOCOM'>INFOCOM</option>
                         <option value='GACO'>GACO</option>

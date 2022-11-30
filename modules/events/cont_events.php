@@ -51,8 +51,9 @@
         }
 
         public function createEvent(){
+            var_dump($_POST);
             if(isset($_SESSION['id'])){
-                if($this->model->createEvent($_POST['title'], $_POST['description'], $_POST['startDate'], $_POST['endDate']))
+                if($this->model->createEvent($_POST['title'], $_POST['description'], $_POST['startDate'], $_POST['endDate'], $_POST['participantsMin'], $_POST['participantsMax'], $_POST['promotion']))
                     header('Location: index.php?module=events');
                 else
                     echo 'Error';

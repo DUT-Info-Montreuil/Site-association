@@ -182,6 +182,16 @@
                     <input id="start" type="date" name="startDate" required>
                     <label for="end">Date de début</label>
                     <input id="end" type="date" name="endDate" required>
+                    <input type='text' name='participantsMin' placeholder='Participants Minimum' required>
+                    <input type='text' name='participantsMax' placeholder='Participants Maximum' required>
+                    <select name='promotion' class='form-select form-select-sm' aria-label='.form-select-sm example'>
+                        <option selected>Promotion</option>
+                        <option value='Tous'>Tous</option>
+                        <option value='INFO'>Informatique</option>
+                        <option value='QLIO'>QLIO</option>
+                        <option value='INFOCOM'>INFOCOM</option>
+                        <option value='GACO'>GACO</option>
+                    </select>
                     <input type='submit' value='Publier'>
                 </form>
             <?php
