@@ -54,5 +54,17 @@
             $query = self::$db->prepare("DELETE FROM likedRequests WHERE idReq = :idReq");
             $query->execute(array(":idReq"=>$idReq));
         }
+
+        public function compareRequestToUser($id){
+            $query = self::$db->prepare("SELECT COUNT(*) FROM request LEFT JOIN users ON request.idUser = users.id WHERE request.ID = :id AND request.idUser = :iduser");
+            $query->execute(array(":id"=>$id, ":iduser" => $_SESSION['id']));
+            $req = $query->fetch();
+            return $req;
+        }
+
+        public function alterRequest($id, $title, $desc){
+            $query = self::$db->prepare("UPDATE request SET title = :title, description = :desc WHERE id = :id");
+            $query->execute(array(":title"=>$title, ":desc"=>$desc, ":id"=>$id));
+        }
     }
 ?>

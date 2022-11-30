@@ -27,6 +27,14 @@
                     case 'like' :
                         $this->cont->likeReq();
                         break;
+
+                    case 'edit' :
+                        $this->cont->edit();
+                        break;
+
+                    case 'submitedit' :
+                        $this->cont->submitEdit();
+                        break;
     
                     default:
                         $this->cont->displayRequest();
