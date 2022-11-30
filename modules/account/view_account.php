@@ -82,22 +82,35 @@
                                         content.innerHTML = "";
                                         if(action == "getEvents" || action == "getSubEvents"){
                                             for(var i = 0; i < data.length; i++){
+                                                var link = document.createElement("a");
                                                 var event = document.createElement("div");
-                                                event.className = "PPEvent";
-                                                event.innerHTML = "<p>" + data[i]['title'] + "</p>";
-                                                event.innerHTML += "<p>" + data[i]['description'] + "</p>";
-                                                event.innerHTML += "<p>" + data[i]['creationDate'] + "</p>";
-                                                event.innerHTML += "<p>" + data[i]['startDate'] + "</p>";
-                                                event.innerHTML += "<p>" + data[i]['endDate'] + "</p>";
-                                                content.appendChild(event);
+                                                
+                                                link.className = "PPEvent";
+                                                event.innerHTML = "<h3>" + data[i]['title'] + "</h3>";
+                                                event.innerHTML += "<h4>" + data[i]['description'] + "</h4>";
+                                                event.innerHTML += "<div class='PPDates'>";
+                                                var dates = document.createElement("div");
+                                                dates.className = "PPDates";
+                                                dates.innerHTML += "<p>du : " + data[i]['startDate'] + "</p>";
+                                                dates.innerHTML += "<p>au : " + data[i]['endDate'] + "</p>";
+
+                                                event.appendChild(dates);
+                                                link.href = "index.php?module=events";
+                                                link.appendChild(event);
+                                                content.appendChild(link);
                                             }
                                         }
                                         else if(action == "getRequests"){
                                             for(var i = 0; i < data.length; i++){
+                                                var link = document.createElement("a");
                                                 var request = document.createElement("div");
-                                                request.className = "PPRequest";
-                                                request.innerHTML = "<p>" + data[i]['title'] + "</p>";
-                                                content.appendChild(request);
+                                                link.className = "PPRequest";
+                                                request.innerHTML = "<h3>" + data[i]['title'] + "</h3>";
+                                                request.innerHTML += "<h4>" + data[i]['description'] + "</h4>";
+                                                request.innerHTML += "<p>" + data[i]['nbLike'] + " personnes ont aimées</p>";
+                                                link.href = "index.php?module=request&action=read&id=" + data[i]['ID'];
+                                                link.appendChild(request);
+                                                content.appendChild(link);
                                             }
                                         }
                                     }

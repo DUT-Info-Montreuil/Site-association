@@ -10,7 +10,7 @@
         }
 
         public static function getUserRequests(){ // returns all requests done by user
-            $query = self::$db->prepare("SELECT * FROM requests WHERE idUser = :id");
+            $query = self::$db->prepare("SELECT * FROM request WHERE idUser = :id");
             $query->execute(array(
                 ':id' => $_SESSION['id']
             ));
@@ -18,7 +18,7 @@
         }
 
         public static function getUserSubEvents(){
-            $query = self::$db->prepare("SELECT * FROM eventSubscribers WHERE idUser = :id");
+            $query = self::$db->prepare("SELECT * FROM eventSubscribers RIGHT JOIN events ON eventSubscribers.idEvent = events.id WHERE idUser = :id");
             $query->execute(array(
                 ':id' => $_SESSION['id']
             ));
