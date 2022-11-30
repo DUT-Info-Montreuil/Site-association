@@ -9,9 +9,10 @@
         public $id;
 
         public function __construct(){
-            isset($_GET['action']) ? $this->action = $_GET['action'] : $this->action = 'default';
-            $this->model = new ModelRequest();
-            $this->view = new ViewRequest();
+                isset($_GET['action']) ? $this->action = $_GET['action'] : $this->action = 'default';
+                $this->model = new ModelRequest();
+                $this->view = new ViewRequest();
+
         }
 
         public function displayRequest(){
@@ -31,11 +32,13 @@
         }
 
         public function requestDetails(){
+            
+            $author = $this->model->compareRequestToUser($_GET['id']);
             $req = $this->model->getRequestOnId($_GET['id']);
             $user = $this->model->getUserDataFromId($_SESSION['id']);
             $comments = $this->model->getCommentsFromId($_GET['id']);
 
-            $this->view->displayRequestDetails($req,$comments);
+            $this->view->displayRequestDetails($req,$comments,$author);
         }
 
         public function postComment(){
@@ -62,6 +65,21 @@
                 }
 
                 $this->requestDetails();
+            }
+        }
+
+        public function edit(){
+            $req = $this->model->getRequestOnId($_GET['id']);
+            $this->view->edit($req);    
+        }
+
+        public function submitEdit(){
+            if(isset($_POST['title']) && isset($_POST['description'])){
+                $title = $_POST['title'];
+                $desc = $_POST['description'];
+                $this->model->alterRequest($_GET['id'],$title,$desc);
+
+                $this->view->submitEdit();
             }
         }
 
