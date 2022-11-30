@@ -85,18 +85,14 @@
                         </form>
                     </HTML>
                     <?php } ?>
-                    <HTML>
-                        <form action='index.php?action=comment&module=request&id=<?php echo $req["ID"]?>' method='post'>
+                </div>
+
+                <HTML> <div id="reqCom"> <h2> Commentaires: </h2> </div> 
+                            <form action='index.php?action=comment&module=request&id=<?php echo $req["ID"]?>' method='post'>
                             <input type='text' name='comment' placeholder='Commenter' required>
                             <input type='submit' value='Commenter'>
                         </form>
-
-
-                    </HTML>
-
-                </div>
-
-                <HTML> <div id="reqCom"> <h2> Commentaires: </h2> </div> </HTML>
+                </HTML>
 
                 <?php
                 foreach($comments as $row){
