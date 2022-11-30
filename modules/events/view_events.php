@@ -8,7 +8,7 @@
         public function displayCreateEventButton(){
             ?>
                 <a href="index.php?module=events&action=publish">
-                    <button class="btn btn-primary">Create an event</button>
+                    <button class="btn btn-primary">Créer un événement</button>
                 </a>
             <?php
         }
@@ -46,6 +46,24 @@
                         <button class="btn btn-success" id="subcribeEventButton" onclick="subscribeToEvent(<?php echo $event['id']?>)">
                             Participer
                         </button>
+                        <script>
+                            function subscribeToEvent(id){
+                                $.ajax({
+                                    url: "modules/events/eventActions.php",
+                                    type: "POST",
+                                    data: {
+                                        id: id,
+                                        action: "subscribe"
+                                    },
+                                    success: function(data){
+                                        //location.reload();
+                                    },
+                                    error: function(){
+                                        alert("Une erreur est survenue");
+                                    }
+                                });
+                            }
+                        </script>
                 <?php
                     }
                     
@@ -54,16 +72,17 @@
                         //ajax buttons to delete or modify the event
                 ?>
                         <div class="eventButtons">
-                            <button class="btn btn-danger" onclick="deleteEvent(<?php echo $event['id']; ?>)"><img src="resources/Trashcan.png"></button>
-                            <button class="btn btn-warning" onclick="modifyEvent(<?php echo $event['id']; ?>)"><img src="resources/Craft.png"></button>
+                            <button id="deleteButton" class="btn btn-danger" onclick="deleteEvent(<?php echo $event['id']; ?>)"><img src="resources/Trashcan.png"></button>
+                            <button id="modifyButton" class="btn btn-warning" onclick="modifyEvent(<?php echo $event['id']; ?>)"><img src="resources/Craft.png"></button>
                         </div>
                         <script>
                             function deleteEvent(id){
                                 $.ajax({
-                                    url: "modules/events/deleteEvent.php",
+                                    url: "modules/events/eventActions.php",
                                     type: "POST",
                                     data: {
-                                        id: id
+                                        id: id,
+                                        action: "delete"
                                     },
                                     error: function() {
                                         alert("error");
@@ -71,16 +90,16 @@
                                     success: function(data){
                                         location.reload();
                                     }
-
                                 });
                             }
 
                             function modifyEvent(id){
                                 $.ajax({
-                                    url: "modules/events/deleteEvent.php",
+                                    url: "modules/events/eventActions.php",
                                     type: "POST",
                                     data: {
-                                        id: id
+                                        id: id,
+                                        action: "modify"
                                     },
                                     error: function() {
                                         alert("error");
