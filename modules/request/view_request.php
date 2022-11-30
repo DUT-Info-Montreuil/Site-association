@@ -8,10 +8,10 @@
             ?>
                 <HTML>
                     <h1>Requête d'achat</h1>
-                    <form action='index.php?action=submit&module=request' method='post'>
-                        <input type='text' name='title' placeholder='Titre' required>
-                        <input type='text' name='description' placeholder='Description' required>
-                        <input type='submit' value='Soumettre'>
+                    <form action='index.php?action=submit&module=request' method='post' id = 'requestForm'>
+                        <input type='text' id = 'requestTitle' name='title' placeholder='Titre' required>
+                        <input type='text' id = 'requestDescription' name='description' placeholder='Description' required>
+                        <input type='submit' id = 'submitRequest' value='Soumettre'>
                     </form>
                 </HTML>
                 

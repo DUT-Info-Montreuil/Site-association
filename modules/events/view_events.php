@@ -175,17 +175,23 @@
         // This function is called from the controller and is used to display the form that allows the user to create a new event.
         public function displayFormEvent(){
             ?>
-                <div id="eventForm">
+                <div id="eventFormBorder">
                     <form action='index.php?module=events&action=published' method='post' id='eventForm'>
                         <input type='text' name='title' placeholder='Titre' required>
                         <textarea name='description' placeholder='Description'></textarea>
-                        <label for="start">Date de début</label>
-                        <input id="start" type="date" name="startDate" required>
-                        <label for="end">Date de début</label>
-                        <input id="end" type="date" name="endDate" required>
-                        <input type='text' name='participantsMin' placeholder='Participants Minimum' required>
-                        <input type='text' name='participantsMax' placeholder='Participants Maximum' required>
-                        <select name='promotion' class='form-select form-select-sm' aria-label='.form-select-sm example'>
+                        <div class='date'>
+                            <label for="start">Date de début:</label>
+                            <input id="start" type="date" name="startDate" required>
+                        </div>
+                        <div class='date'>
+                            <label for="end">Date de fin:</label>
+                            <input id="end" type="date" name="endDate" required>
+                        </div>
+                        <div id = 'participants'>
+                            <input type='text' name='participantsMin' placeholder='Participants Minimum' required>
+                            <input type='text' name='participantsMax' placeholder='Participants Maximum' required>
+                        </div>
+                        <select name='promotion' class='form-select form-select-sm' aria-label='.form-select-sm example' id = 'eventPromo'>
                             <option selected>Promotion</option>
                             <option value='Tous'>Tous</option>
                             <option value='INFO'>Informatique</option>
@@ -193,7 +199,7 @@
                             <option value='INFOCOM'>INFOCOM</option>
                             <option value='GACO'>GACO</option>
                         </select>
-                        <input type='submit' value='Publier'>
+                        <input type='submit' value='Publier' id='submitEvent'>
                     </form>
             </div>
             <?php
