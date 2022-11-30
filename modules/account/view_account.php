@@ -49,9 +49,9 @@
                         <div id="PPLeftTop">
                             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
                             <div>
-                                <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['username']?></p>
-                                <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['email']?></p>
-                                <p>BUT <?php echo Connection::getUserDataFromId($_SESSION['id'])['promotion']?></p>
+                                <h2><?php echo Connection::getUserDataFromId($_SESSION['id'])['username']?></h2>
+                                <h4><?php echo Connection::getUserDataFromId($_SESSION['id'])['email']?></h4>
+                                <h4>BUT <?php echo Connection::getUserDataFromId($_SESSION['id'])['promotion']?></h4>
                             </div>
                         </div>
                     </div>
