@@ -44,20 +44,67 @@
             ?>
             <HTML>
                 <a href='index.php?action=logout&module=connection'>Se déconnecter</a>
-                <div id='PPLeftColoumn'>
-                    <div id="PPLeftTop">
-                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
-                        <div>
-                            <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['username']?></p>
-                            <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['email']?></p>
-                            <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['promotion']?></p>
+                <div id='PP'>
+                    <div id='PPLeftColumn'>
+                        <div id="PPLeftTop">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                            <div>
+                                <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['username']?></p>
+                                <p><?php echo Connection::getUserDataFromId($_SESSION['id'])['email']?></p>
+                                <p>BUT <?php echo Connection::getUserDataFromId($_SESSION['id'])['promotion']?></p>
+                            </div>
                         </div>
-                        
                     </div>
-                </div>
+                
+                    <div id='PPRightColumn'>
+                        <div id="PPTabs">
+                            <button id="PPBtn1" class="btn PPTabLinks" onclick="changeContent('getEvents')">Vos événements</button>
+                            <button id="PPBtn2" class="btn PPTabLinks" onclick="changeContent('getRequests')">Vos requetes d'achats</button>
+                            <button id="PPBtn3" class="btn PPTabLinks" onclick="changeContent('getSubEvents')">Evénements que vous suivez</button>
+                        </div>
+                        <div id="PPContent">
 
-                <div id='PPRightColoumn'>
-                    
+                        </div>
+                        <script>
+                            function changeContent(action){
+                                $.ajax({
+                                    url: "modules/account/accountActions.php",
+                                    type: "POST",
+                                    dataType: "json",
+                                    data: {
+                                        action: action
+                                    },
+                                    error: function() {
+                                        alert("error");
+                                    },
+                                    success: function(data){
+                                        var content = document.getElementById("PPContent");
+                                        content.innerHTML = "";
+                                        if(action == "getEvents" || action == "getSubEvents"){
+                                            for(var i = 0; i < data.length; i++){
+                                                var event = document.createElement("div");
+                                                event.className = "PPEvent";
+                                                event.innerHTML = "<p>" + data[i]['title'] + "</p>";
+                                                event.innerHTML += "<p>" + data[i]['description'] + "</p>";
+                                                event.innerHTML += "<p>" + data[i]['creationDate'] + "</p>";
+                                                event.innerHTML += "<p>" + data[i]['startDate'] + "</p>";
+                                                event.innerHTML += "<p>" + data[i]['endDate'] + "</p>";
+                                                content.appendChild(event);
+                                            }
+                                        }
+                                        else if(action == "getRequests"){
+                                            for(var i = 0; i < data.length; i++){
+                                                var request = document.createElement("div");
+                                                request.className = "PPRequest";
+                                                request.innerHTML = "<p>" + data[i]['title'] + "</p>";
+                                                content.appendChild(request);
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        </script>
+                    </div>
                 </div>
             </HTML>
             <?php
