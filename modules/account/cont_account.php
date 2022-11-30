@@ -1,6 +1,6 @@
 <?php
-    include_once "modules/connection/view_connection.php";
-    include_once "modules/connection/model_connection.php";
+    include_once "modules/account/view_account.php";
+    include_once "modules/account/model_account.php";
     class ContConnection{
         public $model;
         public $view;
@@ -11,8 +11,8 @@
             if(isset($_SESSION['id']) && $this->action != 'logout'){
                 $this->action = 'alreadyConnected';
             }
-            $this->model = new ModelConnection();
-            $this->view = new ViewConnection();
+            $this->model = new ModelAccount();
+            $this->view = new ViewAccount();
         }
 
         public function formSignIn(){

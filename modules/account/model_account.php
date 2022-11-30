@@ -1,5 +1,5 @@
 <?php
-    class ModelConnection extends Connection{
+    class ModelAccount extends Connection{
         public function __construct(){}
         
         public function getUserData($username){

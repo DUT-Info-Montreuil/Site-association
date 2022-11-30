@@ -1,6 +1,6 @@
 <?php
-    include_once "modules/connection/cont_connection.php";
-    class ModConnection{
+    include_once "modules/account/cont_account.php";
+    class ModAccount{
         public $cont;
         public function __construct(){
             $this->cont = new ContConnection;

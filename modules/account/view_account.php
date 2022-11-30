@@ -1,5 +1,5 @@
 <?php
-    class ViewConnection extends GenericView{
+    class ViewAccount extends GenericView{
         public function __construct(){
             parent::__construct();
         }

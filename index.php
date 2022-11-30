@@ -10,8 +10,8 @@
     if(isset($_GET['module'])){
         switch($_GET['module']){
             case 'connection':
-                include_once "modules/connection/mod_connection.php";
-                $module = new ModConnection();
+                include_once "modules/account/mod_account.php";
+                $module = new ModAccount();
                 break;
             case 'request':
                 include_once "modules/request/mod_request.php";
