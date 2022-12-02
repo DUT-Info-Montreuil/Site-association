@@ -29,6 +29,17 @@
             <?php
         }
 
+        public function displayRequestPage($tab){
+            $i=0;
+            foreach($tab as $row){
+                echo '<p> -' . $row['title'] .'</p>';
+                $i++;
+                if ($i>5){
+                    break;
+                }
+            }
+        }
+
     }
 
     

@@ -14,6 +14,7 @@
             $this->view->displayMainPage();
             ?>
                 <div id="eventHomePage">
+                <div>
                 <a href="index.php?module=events" class="noDeco">
                     <h3>Voici quelques événements : </h3>
             <?php
@@ -27,6 +28,16 @@
             }
             ?>
                 </a>
+                </div>
+                <div>
+                <a href="index.php?module=request" class="noDeco">
+                    <h3>Voici quelques requêtes : </h3>
+                    <?php
+                    $row = $this->model->getRequests();
+                    $this->view->displayRequestPage($row);
+                    ?>
+                </a>
+                </div>
                 </div>
             <?php
         }

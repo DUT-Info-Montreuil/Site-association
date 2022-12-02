@@ -72,8 +72,9 @@ footer{
 
 #eventHomePage{
     display: flex;
-    align-self: flex-start;
-    align-self: space-around;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-top: 75px;
 }
 
 #eventContainer{
