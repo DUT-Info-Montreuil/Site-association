@@ -12,6 +12,27 @@
         }
         public function default(){
             $this->view->displayMainPage();
+            ?>
+                <div id="eventHomePage">
+                <a href="index.php?module=events" class="noDeco">
+                    <h3>Voici quelques événements : </h3>
+            <?php
+            $i=1;
+            foreach($this->model->getEvents() as $event){
+                $this->view->displayEvent($event);
+                $i++;
+                if ($i>3){
+                    break;
+                }
+            }
+            ?>
+                </a>
+                </div>
+            <?php
+        }
+
+        public function defaultPage(){
+            $this->view->displayMainPage();
         }
     }
 ?>

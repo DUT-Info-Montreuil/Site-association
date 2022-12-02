@@ -62,6 +62,20 @@ footer{
     justify-content: space-between;
 }
 
+.noDeco{
+    text-decoration: none;
+    color: #2b2929;
+}
+.noDeco:hover{
+    color: #2b2929;
+}
+
+#eventHomePage{
+    display: flex;
+    align-self: flex-start;
+    align-self: space-around;
+}
+
 #eventContainer{
     display: flex;
     flex-direction: column;
