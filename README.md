@@ -10,8 +10,8 @@ Groupe :
 
 
 Consigne :
-Faire un site web utilisant HTML/CSS, PHP, SQL, JQuery.Ajax().
-Cahier des charges / MCD Disponible dans le dossier "Rendu".
+- Faire un site web utilisant HTML/CSS, PHP, SQL, JQuery.Ajax().
+- Cahier des charges / MCD Disponible dans le dossier "Rendu".
 
 
 Détails :
