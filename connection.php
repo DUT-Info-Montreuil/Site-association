@@ -2,14 +2,15 @@
     class Connection{
         // enter in terminal before modifying so that you don't commit variables : git update-index --skip-worktree connection.php 
         // enter in terminal after modifying so that you can commit variables : git update-index --no-skip-worktree connection.php
-        private static $host = "database-etudiants.iut.univ-paris8.fr";
-        private static $user = "dutinfopw201658";
-        private static $pass = "ravuveny";
+        private static $host = "host";
+        private static $user = "user";
+        private static $dbName = "db_name";
+        private static $pass = "password";
         protected static $db;
         
         public static function connect(){
             self::$db= new PDO(
-                'mysql:dbname=' . self::$user . ';host=' . self::$host . ';charset=utf8',
+                'mysql:dbname=' . self::$dbName . ';host=' . self::$host . ';charset=utf8',
                 self::$user,
                 self::$pass
             );
