@@ -8,10 +8,10 @@
             ?>
                 <HTML>
                     <h1>Requête d'achat</h1>
-                    <form action='index.php?action=submit&module=request' method='post'>
-                        <input type='text' name='title' placeholder='Titre' required>
-                        <input type='text' name='description' placeholder='Description' required>
-                        <input type='submit' value='Soumettre'>
+                    <form action='index.php?action=submit&module=request' method='post' id = 'requestForm'>
+                        <input type='text' id = 'requestTitle' name='title' placeholder='Titre' required>
+                        <input type='text' id = 'requestDescription' name='description' placeholder='Description' required>
+                        <input type='submit' id = 'submitRequest' value='Soumettre'>
                     </form>
                 </HTML>
                 
@@ -58,7 +58,7 @@
             </HTML> 
             <div class="requestDetails"><?php
 
-                    echo $req['title'] . ' demandé par ' . $req['username'] . '<br>' . $req['description'] .'<br>'. $req['nbLike'] .' Aiment';
+                    echo $req['title'] . ' demandé par ' . $req['username'] . '<br>' . $req['description'] .'<br>'. $req['nbLike'] .' Aiment' . '<br>Statut: '. $req['state'];
                     if($author['COUNT(*)'] == 1){
                         ?>
                         <HTML>
@@ -74,16 +74,25 @@
                         <form action='index.php?action=like&module=request&id=<?php echo $req["ID"]?>' method='post'>
                             <input type='submit' value='Aimer'>
                         </form>
-                        <form action='index.php?action=comment&module=request&id=<?php echo $req["ID"]?>' method='post'>
+                    </HTML>
+                    <?php if(Connection::getUserDataFromId($_SESSION['id'])['role'] == 'admin'){ ?>
+                    <HTML>
+                        <form action='index.php?action=approve&module=request&id=<?php echo $req["ID"]?>' method='post'>
+                            <input type='submit' value='Approuver'>
+                        </form>
+                        <form action='index.php?action=discard&module=request&id=<?php echo $req["ID"]?>' method='post'>
+                            <input type='submit' value='Rejeter'>
+                        </form>
+                    </HTML>
+                    <?php } ?>
+                </div>
+
+                <HTML> <div id="reqCom"> <h2> Commentaires: </h2> </div> 
+                            <form action='index.php?action=comment&module=request&id=<?php echo $req["ID"]?>' method='post'>
                             <input type='text' name='comment' placeholder='Commenter' required>
                             <input type='submit' value='Commenter'>
                         </form>
-
-                    </HTML>
-
-                </div>
-
-                <HTML> <div id="reqCom"> <h2> Commentaires: </h2> </div> </HTML>
+                </HTML>
 
                 <?php
                 foreach($comments as $row){

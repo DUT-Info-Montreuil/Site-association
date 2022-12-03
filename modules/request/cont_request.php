@@ -83,5 +83,15 @@
             }
         }
 
+        public function approve(){
+            $this->model->approve($_GET['id']);
+            $this->requestDetails();
+        }
+
+        public function discard(){
+            $this->model->discard($_GET['id']);
+            $this->requestDetails();
+        }
+
     }
 ?>

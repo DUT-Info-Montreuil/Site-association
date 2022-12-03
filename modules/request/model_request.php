@@ -66,5 +66,15 @@
             $query = self::$db->prepare("UPDATE request SET title = :title, description = :desc WHERE id = :id");
             $query->execute(array(":title"=>$title, ":desc"=>$desc, ":id"=>$id));
         }
+
+        public function approve($id){
+            $query = self::$db->prepare("UPDATE request SET state = 'Approuvé' WHERE id = :id");
+            $query->execute(array(":id"=>$id));
+        }
+
+        public function discard($id){
+            $query = self::$db->prepare("UPDATE request SET state = 'Rejeté' WHERE id = :id");
+            $query->execute(array(":id"=>$id));
+        }
     }
 ?>

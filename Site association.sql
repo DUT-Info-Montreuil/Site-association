@@ -31,21 +31,25 @@ CREATE TABLE `users` (
   `username` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `promotion` varchar(10) NOT NULL
+  `promotion` varchar(10) NOT NULL,
+  `role` varchar(20) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `users`
+-- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `promotion`) VALUES
-(1, 'pogman', 'pogman@gmail.com', '$2y$10$GQ8f8Ke.RdshdU5xQjvpHu/9nkBM7OM3IqnDRwOHkzQFUkzBWhoIK', 'INFO'),
-(2, 'amogus', 'susmogman@poop.io', '$2y$10$iok0v/GMqVrAemJhvxm.6eAiH4v0lE4.7XBZ6wNTDXIWd8Rlyf012', 'INFO'),
-(3, 'test', 'test@test.test', '$2y$10$JreW5xAXKuuc3xmxeHNp/OUv2VS2WKE2gqqtyV8w2Y3mgofGhAxr.', 'GACO'),
-(4, 'gamer', 'games@gaming.game', '$2y$10$g99TFKEXCELUXDcmy0PzouBXk9gH8gSJOmKmxHXQJTdIbDAk6YIvK', 'INFO');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `promotion`, `role`) VALUES
+(1, 'pogman', 'pogman@gmail.com', '$2y$10$GQ8f8Ke.RdshdU5xQjvpHu/9nkBM7OM3IqnDRwOHkzQFUkzBWhoIK', 'INFO', 'user'),
+(2, 'amogus', 'susmogman@poop.io', '$2y$10$iok0v/GMqVrAemJhvxm.6eAiH4v0lE4.7XBZ6wNTDXIWd8Rlyf012', 'INFO', 'user'),
+(3, 'test', 'test@test.test', '$2y$10$JreW5xAXKuuc3xmxeHNp/OUv2VS2WKE2gqqtyV8w2Y3mgofGhAxr.', 'GACO', 'user'),
+(4, 'gamer', 'games@gaming.game', '$2y$10$g99TFKEXCELUXDcmy0PzouBXk9gH8gSJOmKmxHXQJTdIbDAk6YIvK', 'INFO', 'user'),
+(5, 'Lucas', 'swagman@gmail.com', '$2y$10$vjnBihcNa0Gy4AW.KYzpDu8auckECUDpFiFcTcN4JYbynirIofOOm', 'INFO', 'admin'),
+(6, 'Mananta', 'Mananta@gmail.com', '$2y$10$XGNwAgXWKF.3q9HgVFGvf.BmfDDO39DQJMSTL2JyN0eXwdaxcuE2K', 'INFO', 'user'),
+(7, 'Mana', 'haha@gmail.com', '$2y$10$eXVDWIWoMksug..oaZV2x.jxz0IUO2HkVs4HAMsmjZ3aQebWV0SAC', 'INFOCOM', 'user');
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -56,14 +60,16 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
@@ -133,16 +139,17 @@ CREATE TABLE `request` (
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `nbLike` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
+  `idUser` int(11) NOT NULL,
+  `state` varchar(20) NOT NULL DEFAULT 'not reviewed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `request`
 --
 
-INSERT INTO `request` (`ID`, `title`, `description`, `nbLike`, `idUser`) VALUES
-(4, 'Une table de baby-foot', 'Afin de se divertir entre les cours', 1, 5),
-(5, 'Un service Ã  raclette', 'Pour se pÃ©ter le bide', 0, 5);
+INSERT INTO `request` (`ID`, `title`, `description`, `nbLike`, `idUser`, `state`) VALUES
+(4, 'Une table de baby-foot et de Ping-Pong', 'Afin de se divertir entre les cours', 3, 5, 'not reviewed'),
+(5, 'Un service à  raclette', 'Pour se peter le bide', 1, 5, 'not reviewed');
 
 --
 -- Index pour les tables déchargées
@@ -164,6 +171,7 @@ ALTER TABLE `request`
 --
 ALTER TABLE `request`
   MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 
 
 -- Structure de la table `commentReq`
@@ -243,8 +251,8 @@ ALTER TABLE `eventSubscribers`
 --
 -- AUTO_INCREMENT pour la table `eventSubscribers`
 --
-ALTER TABLE `eventSubscribers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  ALTER TABLE `eventSubscribers`
+    MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées
