@@ -2,9 +2,9 @@
     class Connection{
         // enter in terminal before modifying so that you don't commit variables : git update-index --skip-worktree connection.php 
         // enter in terminal after modifying so that you can commit variables : git update-index --no-skip-worktree connection.php
-        private static $host = "host";
-        private static $user = "user";
-        private static $pass = "password";
+        private static $host = "database-etudiants.iut.univ-paris8.fr";
+        private static $user = "dutinfopw201658";
+        private static $pass = "ravuveny";
         protected static $db;
         
         public static function connect(){

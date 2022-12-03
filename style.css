@@ -190,6 +190,21 @@ footer{
     justify-content: space-between;
 }
 
+.noDeco{
+    text-decoration: none;
+    color: #2b2929;
+}
+.noDeco:hover{
+    color: #2b2929;
+}
+
+#eventHomePage{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-top: 75px;
+}
+
 .eventButtons {
     display: flex;
     flex-direction: row-reverse;
