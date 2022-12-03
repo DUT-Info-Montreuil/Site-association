@@ -18,7 +18,7 @@
             ?>
         </MAIN>
         <FOOTER>
-            <H2> wow </H2>
+            <H2>© Tarek BOUCHEMA, Lucas ASTIER, Theo MISKOVIC</H2>
         </FOOTER>
     </BODY>
 </HTML>
