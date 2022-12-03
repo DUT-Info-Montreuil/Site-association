@@ -9,16 +9,18 @@
     </HEAD>
 
     <BODY>
+        <!-- Header -->
         <?php
             require_once "header_template.php";
         ?>
+        <!-- MAIN will always contain the module -->
         <MAIN>
             <?php
                 echo $module->getDisplay();
             ?>
         </MAIN>
         <FOOTER>
-            <H2>© Tarek BOUCHEMA, Lucas ASTIER, Theo MISKOVIC</H2>
+            <H3>© Tarek BOUCHEMA, Lucas ASTIER, Theo MISKOVIC</H3>
         </FOOTER>
     </BODY>
 </HTML>

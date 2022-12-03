@@ -1,3 +1,4 @@
+/*GENERAL SETTINGS*/
 body{
     width: 100%;
     display: flex;
@@ -338,6 +339,7 @@ footer{
     width: 20%;
 }
 
+/*EVENT FORM*/
 #eventFormBorder{
     display: flex;
     flex-direction: column;
@@ -398,4 +400,3 @@ footer{
     margin: auto;   
     text-align: center;
 }
-

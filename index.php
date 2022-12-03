@@ -6,7 +6,7 @@
     Connection::connect();
     session_start();
     
-    $module;
+    $module; // module to display
     if(isset($_GET['module'])){
         switch($_GET['module']){
             case 'connection':
@@ -29,7 +29,7 @@
         include_once "modules/mainPage/mod_mainPage.php";
         $module = new ModMainPage();
     }
-    $module->saveDisplay();
+    $module->saveDisplay(); // save the module display in a variable to control where to display it in the template
 
     require_once "template.php";
 ?>
