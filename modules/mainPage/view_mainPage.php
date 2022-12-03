@@ -21,7 +21,7 @@
                     if(isset($_SESSION['id']) && $event['creatorId'] == $_SESSION ['id']){
                         echo "Vous";
                     } else{
-                        echo Connection::getUserFromId($event['creatorId'])['username']; 
+                        echo Connection::getUserDataFromId($event['creatorId'])['username']; 
                     }?></p>
                 </div>
                 <p class="eventDesc"><?php echo $event['description']; ?></p>
