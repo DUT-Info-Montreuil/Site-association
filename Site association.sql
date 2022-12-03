@@ -87,19 +87,19 @@ CREATE TABLE `events` (
   `maxParticipants` int(11) DEFAULT NULL,
   `creationDate` date NOT NULL,
   `startDate` date NOT NULL,
-  `endDate` date NOT NULL
+  `endDate` date NOT NULL,
+  `promotion` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `events`
 --
-
-INSERT INTO `events` (`id`, `title`, `description`, `creatorId`, `minParticipants`, `maxParticipants`, `creationDate`, `startDate`, `endDate`) VALUES
-(1, 'AMOGUS REUNION (VERY IMPORTANT)', 'WE ARE GONNA MONG SOME US AND IT\'S GONNA BE EPIC (wow)', 2, 4, NULL, '2022-11-09', '2022-11-14', '2022-11-15'),
-(2, 'test', 'waw', 4, 1, NULL, '2022-11-09', '2022-11-12', '2022-11-23'),
-(3, 'Boyz hangin out in the toilets', 'what will happen ???', 4, 1, NULL, '2022-11-09', '2022-11-08', '2022-11-11'),
-(4, 'Wow on mange des pates', 'c\'est fou', 4, 1, NULL, '2022-11-09', '2022-11-04', '2022-11-24'),
-(5, 'test', 'test', 4, 1, NULL, '2022-11-09', '2022-11-01', '2022-11-08');
+''
+INSERT INTO `events` (`id`, `title`, `description`, `creatorId`, `minParticipants`, `maxParticipants`, `creationDate`, `startDate`, `endDate`, `promotion`) VALUES
+(1, 'AMOGUS REUNION (VERY IMPORTANT)', 'WE ARE GONNA MONG SOME US AND IT\'S GONNA BE EPIC (wow)', 2, 4, NULL, '2022-11-09', '2022-11-14', '2022-11-15', 'INFO'),
+(6, 'Réunions des booooyz', 'Les boys se réunissent pour faire des trucs de gamer', 5, 1, NULL, '2022-11-25', '2022-12-01', '2022-12-25', 'TOUS'),
+(7, 'Réunion emergency', 'Alerte je crois qu\'il y a un impostor amongus', 7, 1, NULL, '2022-11-30', '2022-11-15', '2022-12-10', 'INFOCOM'),
+(8, 'Pizza Party', 'Car c bon', 5, 5, 10, '2022-11-30', '2022-11-01', '2022-11-02', 'QLIO');
 
 --
 -- Index pour les tables exportées
