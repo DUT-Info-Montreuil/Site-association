@@ -23,7 +23,7 @@
                 break;
             default:
                 // error
-                break;
+                die("Module not found");
         }
     }else{
         include_once "modules/mainPage/mod_mainPage.php";
