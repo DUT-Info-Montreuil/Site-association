@@ -51,7 +51,7 @@
             }
 
             else{
-                echo "lol connecte toi";
+                header('Location: index.php?module=connection');
             }
             
         }

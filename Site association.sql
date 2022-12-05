@@ -135,7 +135,7 @@ CREATE TABLE `request` (
   `description` text NOT NULL,
   `nbLike` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
-  `state` varchar(20) NOT NULL DEFAULT 'not reviewed'
+  `state` varchar(20) NOT NULL DEFAULT 'non approuvé'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
