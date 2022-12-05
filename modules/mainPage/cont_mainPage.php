@@ -30,13 +30,13 @@
                 </a>
                 </div>
                 <div>
-                <a href="index.php?module=request" class="noDeco">
-                    <h3>Voici quelques requêtes : </h3>
+                    <a href="index.php?module=request" class="noDeco">
+                        <h3>Voici quelques requêtes : </h3>
                     <?php
-                    $row = $this->model->getRequests();
-                    $this->view->displayRequestPage($row);
+                        $row = $this->model->getRequests();
+                        $this->view->displayRequestPage($row);
                     ?>
-                </a>
+                    </a>
                 </div>
                 </div>
             <?php

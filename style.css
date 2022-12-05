@@ -161,7 +161,6 @@ footer{
 .event{
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     align-items: left;
 
     padding: 20px;
@@ -169,6 +168,7 @@ footer{
     border: solid #b9b9b9 2px;
     border-radius : 25px;
     width: 80%;
+    margin: 10px;
 }
 
 .eventDesc{
@@ -202,6 +202,7 @@ footer{
 #eventHomePage{
     display: flex;
     justify-content: space-evenly;
+    align-items: space-between;
     width: 100%;
     padding-top: 75px;
 }

@@ -7,7 +7,8 @@
         public function displayMainPage(){
             ?>
             <h1>Accueil</h1>
-            <p>Bienvenue au site de l'association.<br/> Ici vous pouvez créer et participer à de nombreux événements, ainsi qu'à des demandes d'achats.</p>   
+            <p>Bienvenue au site de l'association.</p>
+            <p>Ici vous pouvez créer et participer à de nombreux événements, ainsi qu'à des demandes d'achats.</p>   
         <?php
 
         }
@@ -32,15 +33,19 @@
         public function displayRequestPage($tab){
             $i=0;
             foreach($tab as $row){
-                echo '<p> -' . $row['title'] .'</p>';
+                ?>
+                    <div class="requestList">
+                        <h2> <?php echo $row['title']?> </h2>
+                        <?php echo 'par ' . $row['username']; ?>
+                    </div>
+                </HTML>
+                <?php
                 $i++;
                 if ($i>5){
-                    break;
+                  break;
                 }
             }
         }
 
-    }
-
-    
+    } 
 ?>
