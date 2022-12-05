@@ -57,7 +57,7 @@
                 </div>
 
                 <?php
-                    if(isset($_SESSION['id']) && Connection::getUserDataFromId($_SESSION['id'])['promotion'] == $event['promotion']){
+                    if(isset($_SESSION['id']) && Connection::getUserDataFromId($_SESSION['id'])['promotion'] == $event['promotion'] || $event['promotion']=='Tous'){
                         if(isset($_SESSION['id']) && $event['creatorId'] != $_SESSION ['id'] && !Connection::isSubscribedToEvent($event['id']) && $event['maxParticipants'] > $event['minParticipants'] && $event['endDate'] > date("Y-m-d")){
                             // button to participate to the event
                             ?>
