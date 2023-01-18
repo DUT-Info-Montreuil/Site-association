@@ -20,7 +20,7 @@
             ?>
         </MAIN>
         <FOOTER>
-            <H3>© Tarek BOUCHEMA, Lucas ASTIER, Theo MISKOVIC</H3>
+            <H3>© 2023 Tarek BOUCHEMA, Lucas ASTIER, Theo MISKOVIC</H3>
         </FOOTER>
     </BODY>
 </HTML>
